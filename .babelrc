@@ -1,14 +1,23 @@
 {
-  "presets": [
+  "presets": [["next/babel"]],
+  "plugins": [
+    "babel-plugin-transform-inline-environment-variables",
+    "babel-plugin-twin",
+    "babel-plugin-macros",
     [
-      "next/babel",
+      "@emotion/babel-plugin-jsx-pragmatic",
       {
-        "preset-react": {
-          "runtime": "automatic",
-          "importSource": "@emotion/react"
-        }
+        "export": "jsx",
+        "import": "__cssprop",
+        "module": "@emotion/react"
+      }
+    ],
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "pragma": "__cssprop",
+        "pragmaFrag": "React.Fragment"
       }
     ]
-  ],
-  "plugins": ["babel-plugin-twin", "@emotion/babel-plugin", "babel-plugin-macros"]
+  ]
 }
